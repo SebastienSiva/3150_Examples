@@ -1,4 +1,4 @@
-public class Main {
+public class LoopStepCounting {
 
     public static IntAnswer smallestDiff(int[] nums) {
         IntAnswer answer = new IntAnswer();
@@ -18,9 +18,6 @@ public class Main {
         answer.value = minDiff;
         return answer;
     }
-
-
-
 
     /*
     0 1 2 3 4  5   6
@@ -45,8 +42,6 @@ public class Main {
             IntAnswer a = smallestDiff(nums);
             System.out.println(MyArrayUtil.arrayToString(nums) + " has minDiff " + a);
         }
-
-
 
         /*
         System.out.println("Hello 3150 Students!");

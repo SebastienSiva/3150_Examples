@@ -1,4 +1,4 @@
-public class MathExamples {
+public class RecursionVsLoop {
     //Tips for reverseString
     //.length
     //.charAt...
