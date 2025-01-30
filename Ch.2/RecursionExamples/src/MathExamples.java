@@ -1,8 +1,8 @@
 public class MathExamples {
+    //Tips for reverseString
     //.length
     //.charAt...
     //.subString...
-
 
     public static int fibRecur(int n) {
         if(n <= 1)
@@ -22,8 +22,6 @@ public class MathExamples {
         }
         return c;
     }
-
-
 
     // n:      1 2 3 4  5
     // fac(n): 1 2 6 24 120
