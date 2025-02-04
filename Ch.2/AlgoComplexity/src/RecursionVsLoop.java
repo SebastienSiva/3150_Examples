@@ -3,10 +3,12 @@ public class RecursionVsLoop {
     //.length
     //.charAt...
     //.subString...
+    public static int stepCounter = 0;
 
     public static int fibRecur(int n) {
         if(n <= 1)
             return n;
+        stepCounter++;
         return fibRecur(n-1) + fibRecur(n-2);
     }
 
@@ -15,6 +17,7 @@ public class RecursionVsLoop {
         int b = 1;
         int c = a + b;
         while(n > 2) {
+            stepCounter++;
             a = b;
             b = c;
             c = a + b;
@@ -28,6 +31,8 @@ public class RecursionVsLoop {
     public static int facLoop(int n) {
         int p = 1;
         for(int i = 2; i <= n; i++) {
+            // how many times does this run?
+            stepCounter++;
             p = p * i;
         }
         return p;
@@ -37,11 +42,27 @@ public class RecursionVsLoop {
         if(n == 1) {
             return 1;
         }
+        stepCounter++;
         return n * facRecur(n - 1);
     }
 
     public static void main(String[] args) {
-        System.out.println(fibRecur(7));
+        stepCounter = 0;
+        System.out.println(fibLoop(30));
+        System.out.println("took " + stepCounter + " steps");
+        stepCounter = 0;
+        System.out.println(fibRecur(50));
+        System.out.println("took " + stepCounter + " steps");
+        /*
+        stepCounter = 0;
+        System.out.println(facLoop(15));
+        System.out.println("took " + stepCounter + " steps");
+        stepCounter = 0;
+        System.out.println(facRecur(15));
+        System.out.println("took " + stepCounter + " steps");
+        //System.out.println(fibRecur(7));
         //System.out.println(facRecur(5));
+        */
+
     }
 }
