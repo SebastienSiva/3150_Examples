@@ -1,7 +1,6 @@
 public class Main {
     public static int hash(String s) {
         //covert string to unique integer
-        
     }
 
     public static void main(String[] args) {
