@@ -8,3 +8,4 @@ public interface StringSet {
     //number of strings in set
     public int size();
 }
+
