@@ -1,7 +1,7 @@
 
 public class StringArraySet implements StringSet{
     private String[] array;
-    private int size = 0; //num string in set
+    private int size = 0; //num strings in set
     private int capacity = 10; //initial capacity
 
     public StringArraySet() {
