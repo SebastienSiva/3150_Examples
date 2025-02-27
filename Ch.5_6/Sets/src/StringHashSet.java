@@ -1,25 +1,20 @@
-
-public class StringArraySet implements StringSet{
-    private String[] array;
+public class StringHashSet implements StringSet{
+    //boolean for every hash value
+    private boolean[] array;
     private int size = 0; //num strings in set
-    private int capacity = 10; //initial capacity
+    private int capacity = 50000; //initial capacity
     private double threshHold = 0.75;
-    public StringArraySet() {
-        this.array = new String[capacity];
+
+    public StringHashSet() {
+        this.array = new boolean[capacity];
     }
 
     public boolean containsString(String s) {
-        for(int i = 0; i < size; i++) {
-            if(array[i].equals(s))
-                return true;
-        }
-        return false;
+        int h = Math.abs(s.hashCode());
+        return array[h % array.length];
     }
 
-    //doubles the capacity
-    private void resize() {
-
-    }
+    private void resize() {}
 
     public void addString(String s) {
         if(this.containsString(s)) {
@@ -32,7 +27,8 @@ public class StringArraySet implements StringSet{
         }
 
         // add next string
-        array[size] = s;
+        int h = Math.abs(s.hashCode());
+        array[h % array.length] = true;
         size += 1;
     }
 
@@ -42,7 +38,7 @@ public class StringArraySet implements StringSet{
 
     public String toString() {
         String all = "Set{";
-        for(int i = 0; i < size; i++) {
+        for(int i = 0; i < array.length; i++) {
             all += array[i] + ", ";
         }
         if(size > 0)
@@ -51,9 +47,12 @@ public class StringArraySet implements StringSet{
     }
 
     public static void main(String[] args) {
-        StringSet mySet = new StringArraySet();
-        for(int i = 0; i < 10; i++) {
-            mySet.addString(TestUtil.getRandomName());
+        StringSet mySet = new StringHashSet();
+        for(int i = 0; i < 40; i++) {
+            String n = TestUtil.getRandomName();
+            int hashIndex = Math.abs(n.hashCode()) % 50000;
+            System.out.println("Adding: " + n + " at hash index " + hashIndex);
+            mySet.addString(n);
         }
         System.out.println(mySet);
     }

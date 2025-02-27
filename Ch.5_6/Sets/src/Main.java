@@ -5,7 +5,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        char c = 'z';
+        char c = 'A';
         int i = (int) c;
         System.out.println(c + " is " + i);
     }
