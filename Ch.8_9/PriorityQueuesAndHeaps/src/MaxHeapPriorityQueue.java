@@ -53,10 +53,41 @@ public class MaxHeapPriorityQueue implements PriorityQueue{
     }
 
     public Entry peek() {
-        return null;
+        return heap[0];
     }
 
+
+    // check the left and right child indexes to see
+    // if parent's priority is less than either child's priority
+    // then, swap parent and LARGEST child entries
+    // then repeat for largest child index
+    // stop when parent already larger than children or at bottom (both children's indexes are >= size)
+    private void bubbleDown(int parent_i) {
+
+    }
+
+    //remove the highest priority entry
     public Entry poll() {
-        return null;
+        Entry e = heap[0];
+        heap[0] = heap[size-1];
+        heap[size-1] = null;
+        size--;
+
+        bubbleDown(0);
+
+        return e;
+    }
+
+    public String toString() {
+        return Arrays.toString(heap);
+    }
+
+    public static void main(String[] args) {
+        MaxHeapPriorityQueue q = new MaxHeapPriorityQueue(10);
+        q.addEntry("Bob", 8);
+        q.addEntry("Lisa", 4);
+        q.addEntry("Sam", 6);
+        q.addEntry("Sally", 9);
+        System.out.println(q);
     }
 }
