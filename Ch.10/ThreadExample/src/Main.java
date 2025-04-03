@@ -1,17 +1,13 @@
 public class Main {
     public static void main(String[] args) throws Exception{
         long startTime = System.currentTimeMillis();
-        NumberPrinter np = new NumberPrinter("Luffy");
-        Thread t1 = new Thread(np);
-        t1.start();
-
-        np = new NumberPrinter("Blackjack");
-        Thread t2 = new Thread(np);
-        t2.start();
-
-        np = new NumberPrinter("Baru");
-        Thread t3 = new Thread(np);
-        t3.start();
+        int maxNum = (int) Math.pow(10, 9);
+        String[] names = {"Luffy", "Blackjack", "Baru"};
+        for(int i = 0; i < names.length; i++) {
+            NumberPrinter np = new NumberPrinter(names[i], (i*maxNum)/3, ((i+1) * maxNum)/3);
+            Thread t = new Thread(np);
+            t.start();
+        }
 
         //wait on all 3 threads to finish.
         t1.join();
