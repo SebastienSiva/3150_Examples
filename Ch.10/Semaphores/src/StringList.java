@@ -1,15 +1,27 @@
+import java.util.concurrent.Semaphore;
+
 public class StringList {
     private String[] array;
     private int size;
+    private Semaphore datalock;
 
     public StringList() {
-        this.array = new String[1000000]; // 1 million strings!
+        this.array = new String[10000000]; // 1 million strings!
         this.size = 0;
+        this.datalock = new Semaphore(1);
     }
 
     public void add(String s) {
-        array[size] = s;
-        size++;
+        //critical section should only allow 1 thread at a time
+        // to avoid data corruption.
+        try {
+            datalock.acquire(); //potentially blocking a thread
+            array[size] = s;
+            size++;
+            datalock.release(); //allowing aby blocked thread to enter
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public int getSize() {
