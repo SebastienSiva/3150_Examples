@@ -9,6 +9,8 @@ public class P2 implements Runnable{
         this.p2Sem = p2s;
     }
 
+    //Will skip 10 then print 10, then skip 10....
+    //Use semaphores to guarantee that both players take their turns in order.
     public void run() {
 
     }
