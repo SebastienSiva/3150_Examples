@@ -6,12 +6,14 @@ public class StockTracker implements Runnable{
     private double price;
     private long timeStamp;
     private NASDAQConnectionMgr conMgr;
+    private PurchaseRequest pr;
 
-    public StockTracker(String name, NASDAQConnectionMgr conMgr) {
+    public StockTracker(String name, NASDAQConnectionMgr conMgr, PurchaseRequest pr) {
         this.name = name;
         this.price = -1;
         this.timeStamp = 0;
         this.conMgr = conMgr;
+        this.pr = pr;
     }
 
     public void run() {
@@ -20,6 +22,11 @@ public class StockTracker implements Runnable{
             NASDAQConnection con = conMgr.getAvailableConnection();
             price = con.getStockPrice(name);
             this.timeStamp = System.currentTimeMillis();
+            //signal purchase request to check price
+            if(pr != null) {
+                pr.signalMe(price);
+            }
+
             conMgr.returnConnection(con);
         }
     }
