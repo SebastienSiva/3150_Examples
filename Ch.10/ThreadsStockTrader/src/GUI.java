@@ -30,6 +30,8 @@ public class GUI {
         Border border = BorderFactory.createEmptyBorder(10, 10, 10, 10);
         topPanel.setBorder(border);
         frame.add(topPanel, BorderLayout.NORTH);
+        btmPanel.setBorder(border);
+        frame.add(btmPanel, BorderLayout.SOUTH);
 
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
