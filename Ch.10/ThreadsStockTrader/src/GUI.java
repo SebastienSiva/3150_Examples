@@ -1,12 +1,14 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class GUI {
     private JLabel[] stockLabels;
     private JTextField purchaseStock;
     private JTextField purchasePrice;
     private JLabel purchaseStatus;
+    private JButton purchaseBtn;
 
     public GUI() {
         //set label fonts
@@ -29,11 +31,12 @@ public class GUI {
         purchaseStock = new JTextField();
         purchasePrice = new JTextField();
         purchaseStatus = new JLabel("Purchase Status");
+        purchaseBtn = new JButton("PURCHASE");
         btmPanel.add(new JLabel("Stock To Purchase:"));
         btmPanel.add(purchaseStock);
         btmPanel.add(new JLabel("Purchase Price:"));
         btmPanel.add(purchasePrice);
-        btmPanel.add(new JButton("PURCHASE"));
+        btmPanel.add(purchaseBtn);
         btmPanel.add(purchaseStatus);
 
         //create window
@@ -68,5 +71,9 @@ public class GUI {
 
     public void setStockLabel(int i, String s) {
         this.stockLabels[i].setText(s);
+    }
+
+    public void addBtnListener(ActionListener al) {
+        purchaseBtn.addActionListener(al);
     }
 }

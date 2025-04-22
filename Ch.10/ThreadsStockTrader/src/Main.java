@@ -20,6 +20,10 @@ public class Main {
             trackers.put(s, track);
         }
 
+        //Set up a listener for the button click event
+        PurchaseBtnListener pbl = new PurchaseBtnListener(trackers, gui, pr);
+        gui.addBtnListener(pbl);
+
         while(true) {
             int i = 0;
             for(StockTracker track: trackers.values()) {
