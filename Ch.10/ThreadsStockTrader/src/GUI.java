@@ -16,6 +16,13 @@ public class GUI {
             topPanel.add(stockLabels[i]);
         }
 
+        //BOTTOM PANEL
+        JPanel btmPanel = new JPanel();
+        btmPanel.setPreferredSize(new Dimension(640, 120));
+        btmPanel.setLayout(new GridLayout(3, 2));
+        btmPanel.add(new JLabel("Stuff here"));
+
+
         //create window
         JFrame frame = new JFrame ();
 
