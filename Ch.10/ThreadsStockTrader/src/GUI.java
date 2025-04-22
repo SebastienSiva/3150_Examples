@@ -20,8 +20,12 @@ public class GUI {
         JPanel btmPanel = new JPanel();
         btmPanel.setPreferredSize(new Dimension(640, 120));
         btmPanel.setLayout(new GridLayout(3, 2));
-        btmPanel.add(new JLabel("Stuff here"));
-
+        btmPanel.add(new JLabel("Stock To Purchase:"));
+        btmPanel.add(new JTextField());
+        btmPanel.add(new JLabel("Purchase Price:"));
+        btmPanel.add(new JTextField());
+        btmPanel.add(new JButton("PURCHASE"));
+        btmPanel.add(new JLabel("Purchase Status"));
 
         //create window
         JFrame frame = new JFrame ();
