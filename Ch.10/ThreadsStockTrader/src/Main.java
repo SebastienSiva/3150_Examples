@@ -22,7 +22,7 @@ public class Main {
 
         while(true) {
             int i = 0;
-            for(StockTracker track: trackers) {
+            for(StockTracker track: trackers.values()) {
                 gui.setStockLabel(i, track.toString());
                 i++;
             }
