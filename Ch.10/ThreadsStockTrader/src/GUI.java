@@ -28,7 +28,7 @@ public class GUI {
         btmPanel.setLayout(new GridLayout(3, 2));
         purchaseStock = new JTextField();
         purchasePrice = new JTextField();
-        purchaseStatus = new JLabel("Purchase Status")
+        purchaseStatus = new JLabel("Purchase Status");
         btmPanel.add(new JLabel("Stock To Purchase:"));
         btmPanel.add(purchaseStock);
         btmPanel.add(new JLabel("Purchase Price:"));
@@ -52,6 +52,18 @@ public class GUI {
         frame.pack();
         frame.setVisible(true);
 
+    }
+
+    public String getPurchaseStock() {
+        return this.purchaseStock.getText();
+    }
+
+    public double getPurchasePrice() {
+        return Double.parseDouble(this.purchasePrice.getText());
+    }
+
+    public void setPurchaseStatus(String s) {
+        this.purchaseStatus.setText(s);
     }
 
     public void setStockLabel(int i, String s) {

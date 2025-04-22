@@ -9,8 +9,10 @@ public class PurchaseRequest implements Runnable{
     private double actualPurchasePrice;
     private boolean readyToPurchase;
     private Semaphore mySignal;
+    private GUI gui;
 
-    public PurchaseRequest() {
+    public PurchaseRequest(GUI gui) {
+        this.gui = gui;
         this.readyToPurchase = false;
         this.mySignal = new Semaphore(0);
     }
@@ -34,15 +36,15 @@ public class PurchaseRequest implements Runnable{
 
     public void run() {
         try {
-            System.out.println("CONNECTING TO BROKER...");
+            gui.setPurchaseStatus("CONNECTING TO BROKER...");
             Thread.sleep(5000); // simulate 5 seconds to connect to broker
-            System.out.println("READY TO PURCHASE!");
+            gui.setPurchaseStatus("READY TO PURCHASE!");
             this.readyToPurchase = true;
             mySignal.acquire(); // block and wait on release to make purchase
 
             //IM ALIVE!!!!
-            System.out.println("PURCHASING " + this.stockName + " : " + this.actualPurchasePrice);
-            System.exit(0); // end the whole program (all threads)
+            gui.setPurchaseStatus("PURCHASING " + this.stockName + " : " + this.actualPurchasePrice);
+            //System.exit(0); // end the whole program (all threads)
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
