@@ -3,6 +3,8 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws Exception{
+        GUI gui = new GUI();
+
         //PurchaseRequest pr = new PurchaseRequest("NVDA", 75);
         //Thread t = new Thread(pr);
         //t.start();
