@@ -8,7 +8,7 @@ public class StockTracker implements Runnable{
     private NASDAQConnectionMgr conMgr;
     private PurchaseRequest pr;
 
-    public StockTracker(String name, NASDAQConnectionMgr conMgrX) {
+    public StockTracker(String name, NASDAQConnectionMgr conMgr) {
         this.name = name;
         this.price = -1;
         this.timeStamp = 0;
