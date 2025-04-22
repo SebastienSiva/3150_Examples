@@ -4,8 +4,14 @@ import java.awt.*;
 
 public class GUI {
     private JLabel[] stockLabels;
+    private JTextField purchaseStock;
+    private JTextField purchasePrice;
+    private JLabel purchaseStatus;
 
     public GUI() {
+        //set label fonts
+        UIManager.put("Label.font", new Font("Courier", Font.PLAIN, 18));
+
         //TOP PANEL
         JPanel topPanel = new JPanel();
         topPanel.setPreferredSize(new Dimension(640, 120));
@@ -20,12 +26,15 @@ public class GUI {
         JPanel btmPanel = new JPanel();
         btmPanel.setPreferredSize(new Dimension(640, 120));
         btmPanel.setLayout(new GridLayout(3, 2));
+        purchaseStock = new JTextField();
+        purchasePrice = new JTextField();
+        purchaseStatus = new JLabel("Purchase Status")
         btmPanel.add(new JLabel("Stock To Purchase:"));
-        btmPanel.add(new JTextField());
+        btmPanel.add(purchaseStock);
         btmPanel.add(new JLabel("Purchase Price:"));
-        btmPanel.add(new JTextField());
+        btmPanel.add(purchasePrice);
         btmPanel.add(new JButton("PURCHASE"));
-        btmPanel.add(new JLabel("Purchase Status"));
+        btmPanel.add(purchaseStatus);
 
         //create window
         JFrame frame = new JFrame ();

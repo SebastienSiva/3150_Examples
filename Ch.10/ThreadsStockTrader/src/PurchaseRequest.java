@@ -10,11 +10,17 @@ public class PurchaseRequest implements Runnable{
     private boolean readyToPurchase;
     private Semaphore mySignal;
 
-    public PurchaseRequest(String stockName, double maxPurchasePrice) {
-        this.stockName = stockName;
-        this.maxPurchasePrice = maxPurchasePrice;
+    public PurchaseRequest() {
         this.readyToPurchase = false;
         this.mySignal = new Semaphore(0);
+    }
+
+    public void setStockName(String stockName) {
+        this.stockName = stockName;
+    }
+
+    public void setMaxPurchasePrice(double maxPurchasePrice) {
+        this.maxPurchasePrice = maxPurchasePrice;
     }
 
     //will be called by the stock tracker for this stock
