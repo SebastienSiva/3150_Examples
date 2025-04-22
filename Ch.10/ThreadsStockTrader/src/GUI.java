@@ -12,7 +12,7 @@ public class GUI {
         topPanel.setLayout(new GridLayout(5, 1));
         stockLabels = new JLabel[5];
         for(int i = 0; i < 5; i++) {
-            stockLabels[i] = new JLabel("Row " + i)
+            stockLabels[i] = new JLabel("Row " + i);
             topPanel.add(stockLabels[i]);
         }
 
@@ -30,5 +30,9 @@ public class GUI {
         frame.pack();
         frame.setVisible(true);
 
+    }
+
+    public void setStockLabel(int i, String s) {
+        this.stockLabels[i].setText(s);
     }
 }

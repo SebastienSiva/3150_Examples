@@ -18,13 +18,12 @@ public class Main {
             trackers.add(track);
         }
 
-        //NOTE: ADJUST CONSOLE HEIGHT TO MAKE THIS LOOK NICE
         while(true) {
+            int i = 0;
             for(StockTracker track: trackers) {
-                System.out.println(track);
+                gui.setStockLabel(i, track.toString());
+                i++;
             }
-            System.out.println();
-            Thread.sleep(1100);
         }
     }
 }
